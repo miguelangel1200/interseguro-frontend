@@ -1,0 +1,6 @@
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: no-referrer
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://interseguro-go-api-c3hg4n5aza-uc.a.run.app https://interseguro-node-api-c3hg4n5aza-uc.a.run.app; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'
