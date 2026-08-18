@@ -1,0 +1,15 @@
+# Dependencias y build
+node_modules/
+dist/
+
+# Entorno local (Vite)
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+
+# IDE
+.idea/
+.vscode/
