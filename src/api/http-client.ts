@@ -16,18 +16,22 @@ export class ApiError extends Error {
 /** API de destino de una petición. */
 export type ApiTarget = "go" | "node";
 
-const TOKEN_KEY = "token";
+// Token JWT en memoria (no persistente). Evita que un XSS exfiltre el token
+// desde localStorage. Al recargar la página se pierde la sesión y se debe
+// iniciar sesión de nuevo. (Una sesión httpOnly-cookie completa requeriría un
+// BFF/gateway por la arquitectura multi-origen frontend → go → node.)
+let sessionToken: string | null = null;
 
 export function getToken(): string | null {
-  return localStorage.getItem(TOKEN_KEY);
+  return sessionToken;
 }
 
 export function setToken(token: string): void {
-  localStorage.setItem(TOKEN_KEY, token);
+  sessionToken = token;
 }
 
 export function clearToken(): void {
-  localStorage.removeItem(TOKEN_KEY);
+  sessionToken = null;
 }
 
 /** Resuelve la URL absoluta de una petición según la API destino. */
